@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Separar Nome e Sobrenome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            padding: 6px;
+            width: 250px;
+        }
+        button {
+            padding: 6px 15px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Separar Nome e Sobrenome</h2>
+
+    <label>Nome completo:</label>
+    <input type="text" id="nomeCompleto">
+
+    <br><br>
+
+    <button onclick="separarNome()"> &gt;&gt; </button>
+
+    <br><br>
+
+    <label>Nome:</label>
+    <input type="text" id="nome">
+
+    <label>Sobrenome:</label>
+    <input type="text" id="sobrenome">
+
+    <script>
+        function separarNome() {
+            let texto = document.getElementById("nomeCompleto").value.trim();
+
+            if (texto === "") {
+                alert("Digite o nome completo.");
+                return;
+            }
+
+            // Divide o nome completo em partes
+            let partes = texto.split(" ");
+
+            // Primeiro nome
+            let nome = partes[0];
+
+            // Sobrenome = tudo que vem depois do primeiro nome
+            let sobrenome = partes.slice(1).join(" ");
+
+            document.getElementById("nome").value = nome;
+            document.getElementById("sobrenome").value = sobrenome;
+        }
+    </script>
+
+</body>
+</html>
